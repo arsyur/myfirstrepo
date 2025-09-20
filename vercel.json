@@ -2,35 +2,39 @@
   "version": 2,
   "builds": [
     {
-      "src": "**/*",
+      "src": "mop-website/**/*",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/mop-website/index.html"
+    },
+    {
       "src": "/styles.css",
-      "dest": "/styles.css",
+      "dest": "/mop-website/styles.css",
       "headers": {
         "Content-Type": "text/css"
       }
     },
     {
       "src": "/script.js",
-      "dest": "/script.js",
+      "dest": "/mop-website/script.js",
       "headers": {
         "Content-Type": "application/javascript"
       }
     },
     {
       "src": "/mop-image.png",
-      "dest": "/mop-image.png",
+      "dest": "/mop-website/mop-image.png",
       "headers": {
         "Content-Type": "image/png"
       }
     },
     {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/mop-website/$1"
     }
   ]
 }
