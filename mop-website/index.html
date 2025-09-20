@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>УЛЬТРА ШВАБРА V2 B750002 - PREMIUM CLEAN</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -48,7 +48,14 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="mop-image.png" alt="УЛЬТРА ШВАБРА V2 B750002" class="product-image">
+                    <img src="mop-image.png" alt="УЛЬТРА ШВАБРА V2 B750002" class="product-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="product-mockup" style="display: none;">
+                        <div class="mop-handle"></div>
+                        <div class="mop-head">
+                            <div class="microfiber-texture"></div>
+                        </div>
+                        <div class="product-label">B750002</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -205,6 +212,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
