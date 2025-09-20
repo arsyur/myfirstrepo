@@ -40,6 +40,13 @@
       }
     },
     {
+      "src": "/pic3.png",
+      "dest": "/mop-website/pic3.png",
+      "headers": {
+        "Content-Type": "image/png"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/mop-website/$1"
     }

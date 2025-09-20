@@ -36,6 +36,13 @@
       }
     },
     {
+      "src": "/pic3.png",
+      "dest": "/pic3.png",
+      "headers": {
+        "Content-Type": "image/png"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
