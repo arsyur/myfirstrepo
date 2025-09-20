@@ -1,0 +1,28 @@
+{
+  "name": "bork-mop-website",
+  "version": "1.0.0",
+  "description": "BORK УЛЬТРА ШВАБРА V2 B750002 - Landing page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "bork",
+    "mop",
+    "microfiber",
+    "cleaning",
+    "landing-page"
+  ],
+  "author": "BORK",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/your-repo.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
