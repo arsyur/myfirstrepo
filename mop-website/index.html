@@ -39,11 +39,13 @@
         .feature-icon { font-size: 3rem; margin-bottom: 2rem; filter: grayscale(1); }
         .feature-card h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #000000; letter-spacing: -0.5px; text-transform: uppercase; }
         .feature-card p { color: #666666; line-height: 1.7; font-size: 1rem; font-weight: 300; }
-        .feature-card.with-bg { background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; }
-        .feature-card.with-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 1; }
-        .feature-card.with-bg > * { position: relative; z-index: 2; color: white !important; }
+        .feature-card.with-bg { background-size: cover; background-position: center; background-repeat: no-repeat; position: relative; transition: all 0.3s ease; }
+        .feature-card.with-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 1; transition: all 0.3s ease; }
+        .feature-card.with-bg > * { position: relative; z-index: 2; color: white !important; transition: all 0.3s ease; }
         .feature-card.with-bg h3 { color: white !important; }
         .feature-card.with-bg p { color: rgba(255,255,255,0.9) !important; }
+        .feature-card.with-bg:hover::before { background: rgba(0,0,0,0); }
+        .feature-card.with-bg:hover > * { opacity: 0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .footer { background: #000000; color: white; text-align: center; padding: 3rem 0; font-weight: 300; }
         @media (max-width: 768px) { .nav-menu { display: none; } .hero-container { grid-template-columns: 1fr; text-align: center; gap: 3rem; } .hero-title { font-size: 3rem; } }
