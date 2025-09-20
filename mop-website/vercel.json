@@ -22,8 +22,8 @@
       }
     },
     {
-      "src": "/mop-image.png",
-      "dest": "/mop-image.png",
+      "src": "/pic1.png",
+      "dest": "/pic1.png",
       "headers": {
         "Content-Type": "image/png"
       }
