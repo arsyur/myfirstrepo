@@ -1,6 +1,6 @@
 {
   "name": "mop-order-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Telegram bot for handling mop orders",
   "main": "bot.js",
   "scripts": {
