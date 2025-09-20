@@ -114,7 +114,7 @@ async function handleOrderSubmission() {
 async function sendOrderToTelegram(orderData) {
     try {
         // Replace with your Railway app URL after deployment
-        const botApiUrl = 'https://your-railway-app-url.railway.app/api/order';
+        const botApiUrl = 'https://telegrambot-ydm4.onrender.com/api/order';
         
         const response = await fetch(botApiUrl, {
             method: 'POST',
