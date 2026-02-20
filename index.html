@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Арсений Юрченко — вайб кодер и создатель персональных ИИ‑ассистентов для людей и бизнеса."
+    />
+    <title>Арсений Юрченко — Создатель ИИ‑ассистентов</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg0: #02030a;
+        --bg1: #060818;
+        --card: rgba(255, 255, 255, 0.045);
+        --card2: rgba(255, 255, 255, 0.085);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.7);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --line: rgba(255, 255, 255, 0.12);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+        --radius: 18px;
+        --maxw: 980px;
+
+        --a: #ffffff;
+        --accent1: #b7c7ff;
+        --accent2: #ffffff;
+        --glow: rgba(183, 199, 255, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(1200px 700px at 12% 10%, rgba(183, 199, 255, 0.22), transparent 60%),
+          radial-gradient(900px 600px at 88% 18%, rgba(255, 255, 255, 0.08), transparent 55%),
+          radial-gradient(1000px 700px at 50% 95%, rgba(140, 255, 233, 0.07), transparent 60%),
+          linear-gradient(140deg, var(--bg0), var(--bg1));
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-underline-offset: 3px;
+        text-decoration-color: rgba(255, 255, 255, 0.38);
+      }
+      a:hover {
+        text-decoration-color: rgba(255, 255, 255, 0.75);
+      }
+
+      .skip {
+        position: absolute;
+        left: -999px;
+        top: 12px;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid var(--line);
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+      .skip:focus {
+        left: 12px;
+        z-index: 20;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.14);
+      }
+
+      .wrap {
+        min-height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 56px 18px;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: var(--maxw);
+        position: relative;
+      }
+
+      .shell::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: calc(var(--radius) + 2px);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.22),
+          rgba(183, 199, 255, 0.14),
+          rgba(255, 255, 255, 0.06)
+        );
+        opacity: 0.35;
+        filter: blur(10px);
+        pointer-events: none;
+      }
+
+      .card {
+        position: relative;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, var(--card), rgba(255, 255, 255, 0.03));
+        box-shadow: var(--shadow);
+        overflow: clip;
+        backdrop-filter: blur(10px);
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-size: 18px 18px;
+        opacity: 0.16;
+        pointer-events: none;
+      }
+
+      header {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 18px 0 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: radial-gradient(20px 20px at 30% 30%, rgba(255, 255, 255, 0.25), transparent 65%),
+          linear-gradient(135deg, rgba(183, 199, 255, 0.35), rgba(255, 255, 255, 0.08));
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .brand strong {
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        text-decoration: none;
+        font-size: 13px;
+        color: var(--muted);
+        transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+      }
+
+      .chip:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      main {
+        padding: 18px;
+      }
+
+      section {
+        position: relative;
+        border-radius: calc(var(--radius) - 4px);
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+        padding: 22px;
+      }
+
+      section + section {
+        margin-top: 14px;
+      }
+
+      .avatar-wrap {
+        margin-top: 18px;
+        margin-bottom: 6px;
+        display: flex;
+        justify-content: flex-start;
+      }
+
+      .avatar-ring {
+        position: relative;
+        width: 112px;
+        height: 112px;
+        border-radius: 999px;
+        padding: 3px;
+        background: conic-gradient(
+          from 200deg,
+          rgba(183, 199, 255, 0.1),
+          rgba(255, 255, 255, 0.9),
+          rgba(140, 255, 233, 0.2),
+          rgba(183, 199, 255, 0.1)
+        );
+        box-shadow:
+          0 0 32px rgba(183, 199, 255, 0.6),
+          0 0 80px rgba(140, 255, 233, 0.35);
+        transition: transform 260ms ease, box-shadow 260ms ease;
+      }
+
+      .avatar-ring::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: inherit;
+        background: conic-gradient(
+          from 200deg,
+          rgba(183, 199, 255, 0.08),
+          rgba(255, 255, 255, 0.7),
+          rgba(140, 255, 233, 0.18),
+          rgba(183, 199, 255, 0.08)
+        );
+        opacity: 0;
+        z-index: 0;
+      }
+
+      .avatar-inner {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.4), transparent 55%),
+          radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .avatar-img {
+        width: 96%;
+        height: 96%;
+        border-radius: inherit;
+        object-fit: cover;
+        filter: saturate(0.8);
+      }
+
+      .avatar-ring:hover {
+        transform: scale(1.02);
+        box-shadow:
+          0 0 34px rgba(183, 199, 255, 0.7),
+          0 0 86px rgba(140, 255, 233, 0.4);
+      }
+
+      .avatar-ring:hover::before {
+        opacity: 0.9;
+        animation: spin-ring 3500ms linear infinite;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(183, 199, 255, 0.1);
+        border: 1px solid rgba(183, 199, 255, 0.22);
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 13px;
+        width: fit-content;
+        box-shadow: 0 0 0 4px rgba(183, 199, 255, 0.05);
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 0 6px var(--glow);
+      }
+
+      h1 {
+        margin: 14px 0 8px 0;
+        font-size: clamp(28px, 4vw, 44px);
+        letter-spacing: -0.8px;
+        line-height: 1.08;
+      }
+
+      .title {
+        margin: 0 0 14px 0;
+        font-size: 14px;
+        color: var(--muted);
+        letter-spacing: 0.2px;
+      }
+
+      .lead {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.7;
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 14px;
+        transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(183, 199, 255, 0.12));
+        border-color: rgba(183, 199, 255, 0.26);
+      }
+
+      .side {
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        padding: 16px;
+      }
+
+      .side h2 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 650;
+        letter-spacing: 0.3px;
+      }
+
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .li {
+        display: grid;
+        grid-template-columns: 14px 1fr;
+        gap: 10px;
+        align-items: start;
+        color: var(--muted2);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .tick {
+        width: 14px;
+        height: 14px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.06);
+        margin-top: 2px;
+      }
+
+      .section-title {
+        margin: 0 0 10px 0;
+        font-size: 15px;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+      }
+
+      .about p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.75;
+        font-size: 15px;
+      }
+
+      .about p + p {
+        margin-top: 10px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .contact-card {
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 14px;
+      }
+
+      .contact-card.big {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-card h3 {
+        margin: 0 0 8px 0;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.86);
+        font-weight: 650;
+        letter-spacing: 0.2px;
+      }
+
+      .contact-card a,
+      .contact-card span {
+        display: inline-block;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.78);
+        word-break: break-word;
+      }
+
+      /* Chat widget */
+      .chat-launcher {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        width: 54px;
+        height: 54px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.3), transparent 55%),
+          linear-gradient(135deg, rgba(183, 199, 255, 0.65), rgba(120, 140, 255, 0.9));
+        box-shadow:
+          0 12px 30px rgba(0, 0, 0, 0.7),
+          0 0 30px rgba(183, 199, 255, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #02030a;
+        cursor: pointer;
+        z-index: 40;
+      }
+
+      .chat-launcher span {
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .chat-window {
+        position: fixed;
+        right: 22px;
+        bottom: 90px;
+        width: min(360px, 90vw);
+        max-height: min(520px, 80vh);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: radial-gradient(circle at 0 0, rgba(183, 199, 255, 0.2), transparent 60%),
+          rgba(5, 7, 18, 0.96);
+        box-shadow:
+          0 18px 60px rgba(0, 0, 0, 0.85),
+          0 0 40px rgba(183, 199, 255, 0.6);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 50;
+      }
+
+      .chat-header {
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(120deg, rgba(183, 199, 255, 0.4), rgba(5, 7, 18, 0.9));
+      }
+
+      .chat-header-title {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .chat-header-title strong {
+        font-size: 14px;
+      }
+
+      .chat-header-title span {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .chat-close {
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      .chat-messages {
+        padding: 14px 14px 6px 14px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 13px;
+      }
+
+      .chat-bubble {
+        max-width: 80%;
+        padding: 9px 11px;
+        border-radius: 14px;
+        line-height: 1.5;
+      }
+
+      .chat-bubble.bot {
+        align-self: flex-start;
+        background: rgba(20, 24, 50, 0.95);
+        border: 1px solid rgba(183, 199, 255, 0.6);
+      }
+
+      .chat-bubble.user {
+        align-self: flex-end;
+        background: rgba(255, 255, 255, 0.95);
+        color: #060818;
+        border-radius: 14px 14px 2px 14px;
+      }
+
+      .chat-input-row {
+        padding: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        gap: 6px;
+        background: rgba(6, 8, 24, 0.98);
+      }
+
+      .chat-input-row input {
+        flex: 1;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(3, 4, 15, 0.9);
+        color: #ffffff;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .chat-input-row button {
+        border-radius: 999px;
+        border: 1px solid rgba(183, 199, 255, 0.6);
+        background: linear-gradient(135deg, rgba(183, 199, 255, 0.8), rgba(120, 140, 255, 1));
+        color: #02030a;
+        font-size: 13px;
+        padding: 8px 12px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      footer {
+        padding: 14px 18px 18px 18px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .sep {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 18px 18px 0 18px;
+      }
+
+      @media (max-width: 860px) {
+        header {
+          gap: 12px;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        nav {
+          justify-content: flex-start;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .card {
+          animation: floatIn 520ms ease-out both;
+        }
+        @keyframes floatIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes spin-ring {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#hero">Перейти к содержимому</a>
+
+    <div class="wrap">
+      <div class="shell">
+        <div class="card">
+          <header>
+            <div class="brand" aria-label="Личная визитка">
+              <strong>Сайт‑визитка</strong>
+            </div>
+          </header>
+
+          <main>
+            <section id="hero" aria-labelledby="hero-title">
+              <div class="hero-grid">
+                <div>
+                  <div class="avatar-wrap">
+                    <div class="avatar-ring" aria-hidden="true">
+                      <div class="avatar-inner">
+                        <img
+                          src="assets/avatar.png"
+                          alt="Арсений Юрченко"
+                          class="avatar-img"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="kicker">
+                    <span class="dot" aria-hidden="true"></span>
+                    <span>Вайб кодер · Создатель ИИ‑ассистентов</span>
+                  </div>
+
+                  <h1 id="hero-title">Арсений Юрченко</h1>
+                  <p class="title">Создатель персональных ИИ‑ассистентов · г. Москва / Удалёнка</p>
+                  <p class="lead">
+                    Я проектирую и внедряю персональных ИИ‑ассистентов, которые помогают людям и
+                    бизнесу разгружать рутину, быстрее принимать решения и не терять фокус на
+                    важном. Моя задача — превратить ваши процессы и знания в удобный цифровой
+                    мозг, который всегда под рукой и говорит на вашем языке.
+                  </p>
+
+                  <div class="hero-actions">
+                    <a class="btn primary" href="mailto:ars.yurchenko@gmail.com">Написать на email</a>
+                    <a class="btn" href="#contacts">Все контакты</a>
+                  </div>
+                </div>
+
+                <aside class="side" aria-label="Ключевые факты">
+                  <h2>Коротко</h2>
+                  <ul class="list">
+                    <li class="li">
+                      <span class="tick" aria-hidden="true"></span>
+                      <span>Фокус: персональные ИИ‑ассистенты под задачи людей и бизнеса</span>
+                    </li>
+                    <li class="li">
+                      <span class="tick" aria-hidden="true"></span>
+                      <span>Формат: глубокое погружение в контекст, кастомные решения, без лишней сложности</span>
+                    </li>
+                    <li class="li">
+                      <span class="tick" aria-hidden="true"></span>
+                      <span>Интересы: ИИ для личной продуктивности, автоматизация процессов, живой диалог человек‑машина</span>
+                    </li>
+                  </ul>
+                </aside>
+              </div>
+            </section>
+
+            <section id="about" class="about" aria-labelledby="about-title">
+              <h2 id="about-title" class="section-title">О себе</h2>
+              <p>
+                Я — вайб кодер и создатель ИИ‑ассистентов. Бережно упаковываю процессы, привычки
+                и знания людей в цифровых помощников, которые экономят время, снижают шум и
+                помогают добираться до сути без бесконечной рутины и микроменеджмента.
+              </p>
+              <p>
+                В проектах люблю глубоко разбираться в контексте: как устроен ваш день, ваш
+                бизнес, ваши решения. На основе этого собираю ассистента, который интегрируется
+                в привычные инструменты, говорит вашим языком и действительно закрывает задачи,
+                а не просто отвечает «для галочки».
+              </p>
+              <p>
+                Открыт к сотрудничеству: от личных ассистентов под конкретного человека до
+                решений для команд и компаний. Если хотите, чтобы ИИ работал на вас, а не
+                наоборот — давайте поговорим.
+              </p>
+            </section>
+
+            <section id="contacts" aria-labelledby="contacts-title">
+              <h2 id="contacts-title" class="section-title">Контакты</h2>
+              <div class="contact-grid">
+                <div class="contact-card">
+                  <h3>Email</h3>
+                  <a href="mailto:ars.yurchenko@gmail.com">ars.yurchenko@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                  <h3>Telegram</h3>
+                  <a href="https://t.me/Ladnoezz" rel="me noopener noreferrer">@Ladnoezz</a>
+                </div>
+                <div class="contact-card">
+                  <h3>GitHub</h3>
+                  <a href="https://github.com/arsyur" rel="me noopener noreferrer">github.com/arsyur</a>
+                </div>
+                <div class="contact-card big">
+                  <span style="font-size: 30px; font-weight: 750;">окак</span>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <div class="sep" aria-hidden="true"></div>
+
+          <footer>
+            <span>© <span id="y"></span> Арсений Юрченко</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-launcher" id="chat-launcher" aria-label="Открыть чат с помощником">
+      <span>✦</span>
+    </div>
+
+    <div class="chat-window" id="chat-window" aria-live="polite">
+      <div class="chat-header">
+        <div class="chat-header-title">
+          <strong>Личный помощник Арс</strong>
+          <span>Обсудим ассистентов, услуги и цены</span>
+        </div>
+        <button class="chat-close" id="chat-close" aria-label="Закрыть чат">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <form class="chat-input-row" id="chat-form">
+        <input
+          id="chat-input"
+          type="text"
+          autocomplete="off"
+          placeholder="Напишите ваш вопрос…"
+        />
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("y").textContent = String(new Date().getFullYear());
+
+      const launcher = document.getElementById("chat-launcher");
+      const chatWindow = document.getElementById("chat-window");
+      const closeBtn = document.getElementById("chat-close");
+      const form = document.getElementById("chat-form");
+      const input = document.getElementById("chat-input");
+      const messages = document.getElementById("chat-messages");
+
+      const sendBubble = (text, from = "bot") => {
+        const el = document.createElement("div");
+        el.className = `chat-bubble ${from}`;
+        el.textContent = text;
+        messages.appendChild(el);
+        messages.scrollTop = messages.scrollHeight;
+      };
+
+      const sendBotMessage = (text) => {
+        const el = document.createElement("div");
+        el.className = "chat-bubble bot";
+        const span = document.createElement("span");
+        el.appendChild(span);
+        messages.appendChild(el);
+        messages.scrollTop = messages.scrollHeight;
+
+        let i = 0;
+        const speed = 22; // скорость печати (меньше — быстрее)
+
+        const typeNext = () => {
+          if (i > text.length) return;
+          span.textContent = text.slice(0, i);
+          messages.scrollTop = messages.scrollHeight;
+          i += 2;
+          if (i <= text.length) {
+            setTimeout(typeNext, speed);
+          }
+        };
+
+        typeNext();
+      };
+
+      const servicesText =
+        "Я помогаю собирать персональных ИИ‑ассистентов под человека или бизнес. " +
+        "Типовые варианты:\n" +
+        "• Личный ассистент: организация дел, заметок, задач, переписок.\n" +
+        "• Бизнес‑ассистент: ответы клиентам, разбор заявок, подготовка писем.\n" +
+        "• Ассистент под процессы: интеграция в Notion, CRM, Telegram, бота для команды.";
+
+      const pricingText =
+        "Ориентировочные цены:\n" +
+        "• Личный ассистент: от 25 000 ₽ за настройку + сопровождение по договорённости.\n" +
+        "• Бизнес‑ассистент: от 45 000 ₽ за пилот под ваш кейс.\n" +
+        "• Интеграция под ключ: рассчитывается индивидуально после созвона.";
+
+      const contactText =
+        "Связаться со мной можно так:\n" +
+        "• Email: ars.yurchenko@gmail.com\n" +
+        "• Telegram: @Ladnoezz";
+
+      const greetingText =
+        "Привет! Я «Личный помощник Арс». Могу рассказать про услуги, примеры ассистентов, " +
+        "ориентировочные цены и как лучше запустить ассистента под твой кейс.";
+
+      const answer = (q) => {
+        const text = q.toLowerCase();
+        if (/(услуг|что делаешь|что ты делаешь|чем занимаешься|ассистент)/.test(text)) {
+          return servicesText;
+        }
+        if (/(цен|стоимост|сколько|budget|бюджет)/.test(text)) {
+          return pricingText;
+        }
+        if (/(контакт|связать|написать|email|почт|телеграм|telegram|tg)/.test(text)) {
+          return contactText;
+        }
+        if (/(пример|кейc|case|как это работает|как работает)/.test(text)) {
+          return (
+            "Обычно я начинаю с короткого созвона: разбираем задачи, инструменты и ограничения. " +
+            "Потом проектирую сценарии ассистента, обучаю на ваших текстах и подключаю туда, " +
+            "где вы живёте: мессенджеры, CRM, Notion и т.п."
+          );
+        }
+        return (
+          "Я могу рассказать про услуги, цены и форматы сотрудничества. Попробуйте спросить, " +
+          "например: «Какие услуги ты оказываешь?», «Сколько стоит ассистент для бизнеса?» " +
+          "или «Как с тобой связаться?»"
+        );
+      };
+
+      const openChat = () => {
+        chatWindow.style.display = "flex";
+        if (!messages.dataset.inited) {
+          sendBotMessage(greetingText);
+          messages.dataset.inited = "1";
+        }
+        setTimeout(() => input.focus(), 50);
+      };
+
+      const closeChat = () => {
+        chatWindow.style.display = "none";
+      };
+
+      launcher.addEventListener("click", openChat);
+      closeBtn.addEventListener("click", closeChat);
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = input.value.trim();
+        if (!value) return;
+        sendBubble(value, "user");
+        input.value = "";
+        setTimeout(() => {
+          sendBotMessage(answer(value));
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
+
